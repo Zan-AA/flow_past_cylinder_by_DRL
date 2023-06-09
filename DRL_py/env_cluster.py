@@ -31,13 +31,11 @@ class env:
     def write_jobfile(self, job_name, file, job_dir):
         with open(f'{job_dir}/jobscript.sh', 'w') as rsh:
             rsh.write(f"""#!/bin/bash -l        
-#SBATCH --partition=standard
+#SBATCH --partition=normal
 #SBATCH --nodes=1
-#SBATCH --time=12:00:00
+#SBATCH --time=02:00:00
 #SBATCH --job-name={job_name}
 #SBATCH --ntasks-per-node=4
-
-module load singularity/3.6.0rc2
 
 singularity run ../of2006-py1.6-cpu.sif {file} {job_dir}""")
 
