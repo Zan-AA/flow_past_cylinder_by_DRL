@@ -87,7 +87,7 @@ class env:
 
         # executing Allrun to start trajectory
         proc[buffer_counter] = subprocess.Popen(
-            ['singularity', 'run', '../of2006-py1.6-cpu.sif', './Allrun', f'{traj_path}/'])
+            ['singularity', 'run', '../of2206-py1.12.1-cpu.sif', './Allrun', f'{traj_path}/'])
         _thread.start_new_thread(self.process_waiter,
                                  (proc[buffer_counter], f"trajectory_{buffer_counter}", results))
 
