@@ -31,13 +31,13 @@ class env:
     def write_jobfile(self, job_name, file, job_dir):
         with open(f'{job_dir}/jobscript.sh', 'w') as rsh:
             rsh.write(f"""#!/bin/bash -l        
-#SBATCH --partition=normal
+#SBATCH --partition=normal,jjalonso
 #SBATCH --nodes=1
-#SBATCH --time=02:00:00
+#SBATCH --time=01:00:00
 #SBATCH --job-name={job_name}
 #SBATCH --ntasks-per-node=4
 
-singularity run ../of2006-py1.6-cpu.sif {file} {job_dir}""")
+singularity run ../of2206-py1.12.1-cpu.sif {file} {job_dir}""")
 
         os.system(f"chmod +x {job_dir}/jobscript.sh")
 
