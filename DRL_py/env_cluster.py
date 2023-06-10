@@ -37,7 +37,7 @@ class env:
 #SBATCH --job-name={job_name}
 #SBATCH --ntasks-per-node=4
 
-singularity run ../of2206-py1.12.1-cpu.sif {file} {job_dir}""")
+singularity run of2206-py1.12.1-cpu.sif {file} {job_dir}""")
 
         os.system(f"chmod +x {job_dir}/jobscript.sh")
 
