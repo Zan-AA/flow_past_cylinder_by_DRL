@@ -87,7 +87,7 @@ class env:
 
         # executing Allrun to start trajectory
         proc[buffer_counter] = subprocess.Popen(
-            ['singularity', 'exec', 'of2206-py1.12.1-cpu.sif', 'bash -c \"source /usr/lib/openfoam/openfoam2206/etc/bashrc && {file} {job_dir}\"')
+            ['singularity', 'exec', 'of2206-py1.12.1-cpu.sif', 'bash -c source /usr/lib/openfoam/openfoam2206/etc/bashrc && {file} {job_dir}'])
 
             # ['singularity', 'run', 'of2206-py1.12.1-cpu.sif', './Allrun', f'{traj_path}/'])
 
