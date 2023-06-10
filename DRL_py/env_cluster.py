@@ -37,7 +37,7 @@ class env:
 #SBATCH --job-name={job_name}
 #SBATCH --ntasks-per-node=4
 
-singularity run of2206-py1.12.1-cpu.sif {file} {job_dir}""")
+singularity exec of2206-py1.12.1-cpu.sif bash -c "source /usr/lib/openfoam/openfoam2206/etc/bashrc && {file} {job_dir}" """)
 
         os.system(f"chmod +x {job_dir}/jobscript.sh")
 
@@ -97,7 +97,7 @@ singularity run of2206-py1.12.1-cpu.sif {file} {job_dir}""")
                  f'sed -i "/^endTime/ s/endTime.*/endTime         {endtime};/g" {traj_path}/system/controlDict &&'
                  f'sed -i "s/timeStart.*/timeStart       {rand_control_traj[0]};/g" {traj_path}/system/controlDict')
 
-        self.write_jobfile(job_name=f'traj_{buffer_counter}', file='. /usr/lib/openfoam/openfoam2206/etc/bashrc && ' + traj_path+'/Allrun', job_dir=traj_path+'/')
+        self.write_jobfile(job_name=f'traj_{buffer_counter}', file=traj_path+'/Allrun', job_dir=traj_path+'/')
         jobfile_path = f'{traj_path}' + '/jobscript.sh'
 
         proc[buffer_counter] = subprocess.Popen(['sh', 'submit_job.sh', jobfile_path])
