@@ -31,7 +31,7 @@ class env:
     def write_jobfile(self, job_name, file, job_dir):
         with open(f'{job_dir}/jobscript.sh', 'w') as rsh:
             rsh.write(f"""#!/bin/bash -l        
-#SBATCH --partition=normal,jjalonso
+#SBATCH --partition=normal,jjalonso,owners
 #SBATCH --nodes=1
 #SBATCH --time=01:00:00
 #SBATCH --job-name={job_name}
@@ -86,7 +86,7 @@ singularity run of2206-py1.12.1-cpu.sif {file} {job_dir}""")
 
         # make dir for new trajectory
         traj_path = f"./env/sample_{sample}/trajectory_{buffer_counter}"
-        print(f"\n starting trajectory : {buffer_counter} \n")
+        print(f"\n starting trajectory using env_cluster: {buffer_counter} \n")
         os.makedirs(traj_path, exist_ok=True)
 
         # copy files form base_case
