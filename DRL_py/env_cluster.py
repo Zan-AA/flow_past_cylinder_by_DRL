@@ -33,7 +33,7 @@ class env:
             rsh.write(f"""#!/bin/bash -l        
 #SBATCH --partition=normal,jjalonso,owners
 #SBATCH --nodes=1
-#SBATCH --time=00:05:00
+#SBATCH --time=00:10:00
 #SBATCH --job-name={job_name}
 #SBATCH --ntasks-per-node=4
 
