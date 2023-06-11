@@ -70,6 +70,10 @@ def fill_buffer(env, sample, n_sensor, gamma, r_1, r_2, r_3, r_4):
     for i, files in enumerate(traj_files):
         # get the dataframe from the trajectories
         coeff_data, trajectory_data, p_at_faces = read_data_from_trajectory(files)
+        
+        print('i:', i)
+        print('shape of coeff_data:', coeff_data.shape)
+        print('shape of trajectory_data:', trajectory_data.shape)
 
         # state values from data frame
         states = trajectory_data[p_at_faces].values
