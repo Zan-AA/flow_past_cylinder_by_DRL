@@ -74,7 +74,7 @@ class env:
 
         # make dir for new trajectory
         traj_path = f"./env/sample_{sample}/trajectory_{buffer_counter}"
-        print(f"\n starting trajectory : {buffer_counter} \n")
+        print(f"\n starting trajectory in local: {buffer_counter} \n")
         os.makedirs(traj_path, exist_ok=True)
 
         # copy files form base_case
@@ -89,7 +89,7 @@ class env:
         file = traj_path + '/Allrun'
         # executing Allrun to start trajectory
         proc[buffer_counter] = subprocess.Popen(
-            ['singularity', 'exec', 'of2206-py1.12.1-cpu.sif', 'bash -c source /usr/lib/openfoam/openfoam2206/etc/bashrc && {file} {job_dir}'])
+            ['singularity', 'exec', 'of2206-py1.12.1-cpu.sif', f'bash -c source /usr/lib/openfoam/openfoam2206/etc/bashrc && {file} {job_dir}'])
 
             # ['singularity', 'run', 'of2206-py1.12.1-cpu.sif', './Allrun', f'{traj_path}/'])
 
