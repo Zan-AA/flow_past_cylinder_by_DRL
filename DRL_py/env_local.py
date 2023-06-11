@@ -85,6 +85,8 @@ class env:
                  f'sed -i "/^endTime/ s/endTime.*/endTime         {endtime};/g" {traj_path}/system/controlDict &&'
                  f'sed -i "s/timeStart.*/timeStart       {rand_control_traj[0]};/g" {traj_path}/system/controlDict')
 
+        job_dir = traj_path + '/'
+        file = traj_path + '/Allrun'
         # executing Allrun to start trajectory
         proc[buffer_counter] = subprocess.Popen(
             ['singularity', 'exec', 'of2206-py1.12.1-cpu.sif', 'bash -c source /usr/lib/openfoam/openfoam2206/etc/bashrc && {file} {job_dir}'])
