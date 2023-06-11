@@ -11,7 +11,7 @@ from check_traj import *
 
 # If machine = 'local' then the functions from env_local will be imported
 # If machine = 'cluster' then the functions from env_cluster will be imported
-machine = 'local'
+machine = 'cluster'
 
 if machine == 'local':
     from env_local import *
