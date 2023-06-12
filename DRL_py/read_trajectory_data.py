@@ -52,7 +52,7 @@ def read_data_from_trajectory(traj_files):
     # setting for delayed start(unexpected behavior of StartTime)
     if abs(trajectory.t.values[0].round(5) - trajectory.t.values[0].round(2)) >= 1e-5:
         pick_every = 20
-        coeffs = coeffs[(coeffs.index - 1) % pick_every == 0]
+        coeffs = coeffs[::pick_every]
     else:
         pick_every = 20
         coeffs = coeffs[coeffs.index % pick_every == 0]
