@@ -39,7 +39,7 @@ def read_data_from_trajectory(traj_files):
     # time, drag, and lift
     names_coeffs[0] = "t"
     names_coeffs[1] = "c_d"
-    names_coeffs[3] = "c_l"
+    names_coeffs[4] = "c_l"
     keep = ["t", "c_d", "c_l"]
 
     file_path = traj_files + "postProcessing/forces/0/coefficient.dat"
