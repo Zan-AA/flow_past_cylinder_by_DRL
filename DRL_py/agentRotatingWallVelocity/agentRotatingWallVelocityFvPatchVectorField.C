@@ -119,7 +119,7 @@ void Foam::agentRotatingWallVelocityFvPatchVectorField::updateCoeffs()
     // update angular velocity
     const scalar t = this->db().time().timeOutputValue();
     bool steps_remaining = (this->db().time().timeIndex() - start_iter_) % interval_ == 0;
-    if (t >= start_time_)
+    if (std::round((t - start_time_)*1e5)/1e5 >= 0)
     {
         if(start_iter_ == 0)
         {
