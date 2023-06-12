@@ -96,4 +96,10 @@ def fill_buffer(env, sample, n_sensor, gamma, r_1, r_2, r_3, r_4):
         return_buffer[i] = returns[:n_T]
         log_prob_buffer[i] = log_probs[:n_T-1]
 
+    np.savetxt('state.dat', state_buffer[:,:,0])
+    np.savetxt('action.dat', action_buffer)
+    np.savetxt('reward.dat', reward_buffer)
+    np.savetxt('return.dat', return_buffer)
+    np.savetxt('log_prob_buffer.dat', log_prob_buffer)
+    
     return state_buffer, action_buffer, reward_buffer, return_buffer, log_prob_buffer
